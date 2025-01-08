@@ -34,7 +34,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Components
-// import Homepage from "./components/Homepage";
+import Homepage from "./components/Homepage";
 import ProductList from "./components/ProductList";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -45,8 +45,8 @@ const App = () => {
         <Router>
             <Routes>
 
-            {/* <Route
-                    path="/"
+            <Route
+                    path="/homepage"
                     element={
                         <>
                             <Navbar />
@@ -54,7 +54,7 @@ const App = () => {
                             <Footer />
                         </>
                     }
-                /> */}
+                />
 
 
                 {/* หน้า Dashboard */}

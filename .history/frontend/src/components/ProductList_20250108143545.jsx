@@ -1120,7 +1120,6 @@ import { Card, CardBody, CardFooter, Image, Input, Pagination } from "@nextui-or
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 import { useNavigate } from 'react-router-dom'; // ใช้ useNavigate แทน useHistory
 import './ProductList.css'; // นำเข้าไฟล์ CSS
-// import {Select, SelectSection, SelectItem} from "@nextui-org/select";
 // import {Image} from "@nextui-org/react";
 
 const SearchIcon = (props) => {
@@ -1268,9 +1267,9 @@ const ProductList = () => {
       {/* Product Grid */}
       <div className="product-grid">
         <h1 className="text-2xl font-bold mb-4">กลุ่มลิงก์และโปรไฟล์</h1>
-        
+
         {/* ฟอร์มการค้นหาสินค้า */}
-        <div className="search-container mb-4">
+        <div className="search-container mb-4 flex-wrap">
           <Input
             value={searchQuery}
             onChange={handleSearchChange}

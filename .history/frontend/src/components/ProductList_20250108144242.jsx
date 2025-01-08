@@ -1268,7 +1268,17 @@ const ProductList = () => {
       {/* Product Grid */}
       <div className="product-grid">
         <h1 className="text-2xl font-bold mb-4">กลุ่มลิงก์และโปรไฟล์</h1>
-        
+
+        <div className="mb-8">
+        <Select className="max-w-xs" label="Select an animal">
+        {animals.map((animal) => (
+          <SelectItem key={animal.key}>{animal.label}</SelectItem>
+        ))}
+      </Select>
+        </div>
+
+
+
         {/* ฟอร์มการค้นหาสินค้า */}
         <div className="search-container mb-4">
           <Input

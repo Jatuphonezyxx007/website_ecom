@@ -1120,7 +1120,7 @@ import { Card, CardBody, CardFooter, Image, Input, Pagination } from "@nextui-or
 import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 import { useNavigate } from 'react-router-dom'; // ใช้ useNavigate แทน useHistory
 import './ProductList.css'; // นำเข้าไฟล์ CSS
-// import {Select, SelectSection, SelectItem} from "@nextui-org/select";
+import {Select, SelectSection, SelectItem} from "@nextui-org/select";
 // import {Image} from "@nextui-org/react";
 
 const SearchIcon = (props) => {
@@ -1158,6 +1158,7 @@ const ProductList = () => {
   const [categories, setCategories] = useState([]); // state สำหรับหมวดหมู่
   const [selectedCategories, setSelectedCategories] = useState([]); // state สำหรับหมวดหมู่ที่เลือก
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState(""); // สำหรับ filter ใหม่
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const navigate = useNavigate(); // ใช้ useNavigate แทน useHistory
@@ -1204,7 +1205,16 @@ const ProductList = () => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category_name);
     return matchesSearch && matchesCategory;
+  })
+
+  .sort((a, b) => {
+    if (sortOption === "price-asc") return a.price - b.price;
+    if (sortOption === "price-desc") return b.price - a.price;
+    if (sortOption === "name-asc") return a.name.localeCompare(b.name);
+    if (sortOption === "name-desc") return b.name.localeCompare(a.name);
+    return 0;
   });
+  
 
   const totalItems = filteredProducts.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -1268,6 +1278,18 @@ const ProductList = () => {
       {/* Product Grid */}
       <div className="product-grid">
         <h1 className="text-2xl font-bold mb-4">กลุ่มลิงก์และโปรไฟล์</h1>
+
+        <div className="mb-8">
+        <div className="filters">
+            <select className="filter-dropdown" value={sortOption} onChange={handleSortChange}>
+              <option value="">จัดเรียงตาม...</option>
+              <option value="price-asc">ราคาน้อย - มาก</option>
+              <option value="price-desc">ราคามาก - น้อย</option>
+              <option value="name-asc">ชื่อ A - Z</option>
+              <option value="name-desc">ชื่อ Z - A</option>
+            </select>
+            </div>
+        </div>
         
         {/* ฟอร์มการค้นหาสินค้า */}
         <div className="search-container mb-4">
