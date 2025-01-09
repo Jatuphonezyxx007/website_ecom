@@ -67,9 +67,9 @@ const ProductDetail = () => {
           onMouseLeave={() => hideZoom()} // เรียกฟังก์ชันเมื่อเมาส์ออกจากภาพ
         >
           <img
-          src={`/products${product.image_path}`}
-          alt={product.name}
-          className="main-image rounded-lg shadow-lg object-contain w-full h-[60vh] max-w-full max-h-[70vh]"
+            src={`/products${product.image_path}`}
+            alt={product.name}
+            className="main-image rounded-lg shadow-lg object-contain max-w-full h-auto"
           />
         </div>
         {/* ภาพซูมข้างๆ เมาส์ */}
@@ -103,7 +103,7 @@ const handleZoom = (e) => {
 
   zoomedImage.style.backgroundImage = `url(${image.src})`;
   zoomedImage.style.backgroundPosition = `${x}% ${y}%`;
-  zoomedImage.style.backgroundSize = `${width * 1.5}px ${height * 1.5}px`; // ลดขนาดซูมลงให้พอดี
+  zoomedImage.style.backgroundSize = `${width * 2}px ${height * 2}px`;
   zoomedImage.style.display = 'block'; // แสดงภาพซูม
 
   // ปรับตำแหน่งของภาพซูมให้อยู่ใกล้เมาส์มากขึ้น

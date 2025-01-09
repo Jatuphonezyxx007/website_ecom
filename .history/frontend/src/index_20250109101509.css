@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-prompt;
+}
+
+footer {
+  position: fixed; /* เปลี่ยนจาก fixed เป็น relative */
+  bottom: 0;
+  /* width: 100%; */
+}

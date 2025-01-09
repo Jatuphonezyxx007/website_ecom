@@ -36,8 +36,8 @@
 
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import './ProductDetail.css';
+import { useParams } from "react-router-dom"; // นำเข้า useParams
+import "./ProductDetail.css";
 
 const ProductDetail = () => {
   const { id } = useParams(); // ดึงค่า id จาก URL
@@ -60,20 +60,14 @@ const ProductDetail = () => {
   return (
     <div className="container mx-auto p-6 flex flex-col md:flex-row gap-8">
       {/* รูปภาพสินค้า */}
-      <div className="md:w-8/12 flex justify-center items-center relative">
-        <div
-          className="image-container"
-          onMouseMove={(e) => handleZoom(e)} // เรียกฟังก์ชันเมื่อเมาส์เลื่อนไปบนภาพ
-          onMouseLeave={() => hideZoom()} // เรียกฟังก์ชันเมื่อเมาส์ออกจากภาพ
-        >
+      <div className="md:w-8/12 flex justify-center items-center">
+        <div className="zoom-container">
           <img
-          src={`/products${product.image_path}`}
-          alt={product.name}
-          className="main-image rounded-lg shadow-lg object-contain w-full h-[60vh] max-w-full max-h-[70vh]"
+            src={`/products${product.image_path}`}
+            alt={product.name}
+            className="rounded-lg shadow-lg object-contain max-w-full h-auto zoom-image"
           />
         </div>
-        {/* ภาพซูมข้างๆ เมาส์ */}
-        <div className="zoomed-image" id="zoomed-image" />
       </div>
 
       {/* รายละเอียดสินค้า */}
@@ -88,33 +82,6 @@ const ProductDetail = () => {
       </div>
     </div>
   );
-};
-
-// ฟังก์ชันเพื่อให้ภาพซูมข้างๆ เมาส์
-const handleZoom = (e) => {
-  const image = document.querySelector('.main-image');
-  const zoomedImage = document.getElementById('zoomed-image');
-  const { offsetX, offsetY } = e.nativeEvent;
-  const { width, height } = image.getBoundingClientRect();
-
-  // คำนวณการซูม
-  const x = (offsetX / width) * 100;
-  const y = (offsetY / height) * 100;
-
-  zoomedImage.style.backgroundImage = `url(${image.src})`;
-  zoomedImage.style.backgroundPosition = `${x}% ${y}%`;
-  zoomedImage.style.backgroundSize = `${width * 1.5}px ${height * 1.5}px`; // ลดขนาดซูมลงให้พอดี
-  zoomedImage.style.display = 'block'; // แสดงภาพซูม
-
-  // ปรับตำแหน่งของภาพซูมให้อยู่ใกล้เมาส์มากขึ้น
-  zoomedImage.style.left = `${e.pageX + 20}px`; // ตำแหน่งซ้าย
-  zoomedImage.style.top = `${e.pageY - 100}px`; // ตำแหน่งบน
-};
-
-// ฟังก์ชันซ่อนภาพซูมเมื่อเอาเมาส์ออก
-const hideZoom = () => {
-  const zoomedImage = document.getElementById('zoomed-image');
-  zoomedImage.style.display = 'none'; // ซ่อนภาพซูม
 };
 
 export default ProductDetail;

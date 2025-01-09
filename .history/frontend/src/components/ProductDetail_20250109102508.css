@@ -1,0 +1,19 @@
+/* Container สำหรับเอฟเฟกต์ซูม */
+.zoom-container {
+    position: relative;
+    overflow: hidden; /* ซ่อนส่วนที่เกินจากขอบ */
+    width: 100%;
+    max-width: 500px; /* กำหนดขนาดสูงสุดของภาพ */
+  }
+  
+  /* ภาพพร้อมเอฟเฟกต์ซูม */
+  .zoom-image {
+    transition: transform 0.3s ease; /* การเคลื่อนไหวที่ราบรื่น */
+    transform-origin: center center; /* จุดซูมอยู่ตรงกลาง */
+  }
+  
+  /* ซูมเมื่อ hover */
+  .zoom-container:hover .zoom-image {
+    transform: scale(1.2); /* ขยายภาพ 120% */
+  }
+  

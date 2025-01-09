@@ -66,11 +66,11 @@ const ProductDetail = () => {
           onMouseMove={(e) => handleZoom(e)} // เรียกฟังก์ชันเมื่อเมาส์เลื่อนไปบนภาพ
           onMouseLeave={() => hideZoom()} // เรียกฟังก์ชันเมื่อเมาส์ออกจากภาพ
         >
-          <img
-          src={`/products${product.image_path}`}
-          alt={product.name}
-          className="main-image rounded-lg shadow-lg object-contain w-full h-[60vh] max-w-full max-h-[70vh]"
-          />
+<img
+  src={`/products${product.image_path}`}
+  alt={product.name}
+  className="main-image rounded-lg shadow-lg object-contain w-full h-[50vh] max-w-full max-h-[70vh]"
+/>
         </div>
         {/* ภาพซูมข้างๆ เมาส์ */}
         <div className="zoomed-image" id="zoomed-image" />

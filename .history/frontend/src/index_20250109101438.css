@@ -6,8 +6,8 @@ body {
   @apply font-prompt;
 }
 
-/* footer {
-  position: fixed;
+footer {
+  position: fixed; /* เปลี่ยนจาก fixed เป็น relative */
   bottom: 0;
   width: 100%;
-} */
+}

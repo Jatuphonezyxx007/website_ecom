@@ -1267,9 +1267,12 @@ const ProductList = () => {
 
       {/* Product Grid */}
       <div className="product-grid">
+        {/* <h1 className="text-2xl font-bold mb-4">{category.name}</h1> */}
+
         <h1 className="text-2xl font-bold mb-4">
-          {categories.length > 0 ? categories[0].name : "ไม่มีหมวดหมู่"}
-        </h1>
+  {categories.length > 0 ? categories[0].name : "ไม่มีหมวดหมู่"}
+</h1>
+
         
         {/* ฟอร์มการค้นหาสินค้า */}
         <div className="search-container mb-4">

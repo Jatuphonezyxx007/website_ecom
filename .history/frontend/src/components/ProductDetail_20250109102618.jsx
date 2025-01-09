@@ -64,12 +64,11 @@ const ProductDetail = () => {
         <div
           className="image-container"
           onMouseMove={(e) => handleZoom(e)} // เรียกฟังก์ชันเมื่อเมาส์เลื่อนไปบนภาพ
-          onMouseLeave={() => hideZoom()} // เรียกฟังก์ชันเมื่อเมาส์ออกจากภาพ
         >
           <img
-          src={`/products${product.image_path}`}
-          alt={product.name}
-          className="main-image rounded-lg shadow-lg object-contain w-full h-[60vh] max-w-full max-h-[70vh]"
+            src={`/products${product.image_path}`}
+            alt={product.name}
+            className="main-image rounded-lg shadow-lg object-contain max-w-full h-auto"
           />
         </div>
         {/* ภาพซูมข้างๆ เมาส์ */}
@@ -103,18 +102,8 @@ const handleZoom = (e) => {
 
   zoomedImage.style.backgroundImage = `url(${image.src})`;
   zoomedImage.style.backgroundPosition = `${x}% ${y}%`;
-  zoomedImage.style.backgroundSize = `${width * 1.5}px ${height * 1.5}px`; // ลดขนาดซูมลงให้พอดี
+  zoomedImage.style.backgroundSize = `${width * 2}px ${height * 2}px`;
   zoomedImage.style.display = 'block'; // แสดงภาพซูม
-
-  // ปรับตำแหน่งของภาพซูมให้อยู่ใกล้เมาส์มากขึ้น
-  zoomedImage.style.left = `${e.pageX + 20}px`; // ตำแหน่งซ้าย
-  zoomedImage.style.top = `${e.pageY - 100}px`; // ตำแหน่งบน
-};
-
-// ฟังก์ชันซ่อนภาพซูมเมื่อเอาเมาส์ออก
-const hideZoom = () => {
-  const zoomedImage = document.getElementById('zoomed-image');
-  zoomedImage.style.display = 'none'; // ซ่อนภาพซูม
 };
 
 export default ProductDetail;

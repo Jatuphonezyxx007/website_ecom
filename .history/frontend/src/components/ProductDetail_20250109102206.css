@@ -1,0 +1,25 @@
+/* ตัวอย่างสีหลักและการปรับแต่งจาก Tailwind */
+.bg-primary {
+    @apply bg-blue-600;
+  }
+  
+  .bg-primary-dark {
+    @apply bg-blue-800;
+  }
+  
+  .text-primary {
+    @apply text-blue-600;
+  }
+  
+  /* การตั้งค่าการแสดงผลที่ช่วยจัดเรียง */
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* สำหรับการจัดการ Responsive */
+  @media (min-width: 768px) {
+    .container {
+      @apply flex;
+    }
+  }
+  
