@@ -20,10 +20,10 @@ body, html {
 }
 
 
-/* .navbar-right {
+.navbar-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1rem; /* เพิ่มช่องว่างระหว่าง Links และ Icon */
 }
 
 
@@ -36,7 +36,7 @@ body, html {
 
 .navbar-links {
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /* ระยะห่างระหว่างลิงก์ */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -63,49 +63,24 @@ body, html {
 }
 
 .logo img {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-} */
+    width: 100px; /* กำหนดความกว้างเป็น 50px */
+    height: auto; /* ปรับความสูงให้อัตโนมัติให้สัดส่วนสมดุล */
+    object-fit: contain; /* ให้ภาพไม่ถูกครอบ */
+    display: block; /* จัดให้อยู่ในรูปแบบ Block Element */
+}
 
 
-
-.logo img {
-    height: 50px;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .date-column,
-  .time-column {
-    text-align: right;
-    white-space: nowrap;
-  }
-  
-  .date-text,
-  .time-text {
-    font-size: 1rem;
-    color: #555;
-    /* font-family: "Arial", sans-serif; */
-    width: 180px; /* กำหนดความกว้างให้คงที่ */
-    text-align: right; /* จัดข้อความชิดขวา */
+/* .profile-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
     overflow: hidden;
-  }
-  
-  .time-text {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-    width: 80px; /* กำหนดความกว้างให้คงที่ */
-    text-align: left; /* จัดข้อความชิดซ้าย */
-  }
-  
-  .profile-icon {
-    margin-left: 10px;
-  }
+    border-radius: 50%;
+}
 
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
 

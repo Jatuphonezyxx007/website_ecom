@@ -1,48 +1,18 @@
-/* Body ต้องมีความสูงเต็มจอ */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-
-/* App container */
-.app {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* ให้ main content ขยายตัว */
-}
-
-/* Header */
-header {
-  background-color: #00458b;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Main Content */
-main {
-  flex-grow: 1; /* ขยายตัวเพื่อดัน footer ลงล่าง */
-  padding: 1rem;
-  background-color: #f8f9fa;
-}
-
-/* Footer */
 footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  margin-top: auto; /* ดัน footer ไปอยู่ล่าง */
-}
-
-footer a {
-  color: #4caf50;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  footer a {
+    color: #4caf50;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  

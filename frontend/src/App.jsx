@@ -35,41 +35,50 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Components
 // import Homepage from "./components/Homepage";
-import Login from "./components/Login/Login";
-import Dashboard from "./components/Dashboard";
+import ProductList from "./components/ProductList";
 import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar"; // ที่อยู่ไฟล์ Sidebar
 import Footer from "./components/Footer/Footer";
-// import ProductDetail from './components/ProductDetail'; // สร้างหน้า ProductDetail
+import ProductDetail from './components/ProductDetail'; // สร้างหน้า ProductDetail
 
 const App = () => {
     return (
         <Router>
             <Routes>
 
-            <Route
+            {/* <Route
                     path="/"
                     element={
                         <>
-                            <Login />
-                            {/* <Footer /> */}
+                            <Navbar />
+                            <Homepage />
+                            <Footer />
                         </>
                     }
-                />
+                /> */}
 
 
                 {/* หน้า Dashboard */}
                 <Route
-                    path="/dashboard"
+                    path="/"
                     element={
                         <>
                             <Navbar />
-                            <Sidebar />
-                            <Dashboard />
-                            {/* <Footer /> */}
+                            <ProductList />
+                            <Footer />
                         </>
                     }
                 />
+                
+                <Route 
+                    path="/productdetail/:id" 
+                    element={
+                      <>
+                          <Navbar />
+                          <ProductDetail />
+                          <Footer />
+                      </> 
+                        }
+                      />
 
             </Routes>
         </Router>
