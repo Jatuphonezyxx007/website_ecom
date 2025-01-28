@@ -1,0 +1,68 @@
+/* Sidebar Container */
+.sidebar {
+    background-color: white;
+    color: gray;
+    height: 100vh;
+    width: 180px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* จัดตำแหน่งให้มีพื้นที่ว่างระหว่างเมนูด้านบนและล่าง */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo Section */
+  .sidebar-logo {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: gray;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+  }
+  
+  /* Sidebar Menu */
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: gray;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .menu-item i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+  
+  /* เพิ่มเอฟเฟกต์ hover */
+  .menu-item:hover {
+    background-color: #e3f2fd; /* สีฟ้าอ่อน */
+    color: #00458b; /* สีฟ้าเข้ม */
+  }
+  
+  /* เมื่อเมนูถูกเลือก */
+  .menu-item.active {
+    background-color: #e6f4ff; /* สีฟ้าเข้มขึ้น */
+    color: black;
+  }
+  
+  /* Footer Menu */
+  .sidebar-footer {
+    margin-top: auto; /* ดัน Footer Menu ไปอยู่ด้านล่างสุด */
+  }
+  
