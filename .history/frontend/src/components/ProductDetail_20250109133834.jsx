@@ -58,8 +58,7 @@ const ProductDetail = () => {
   if (!product) return <div className="text-center text-xl font-bold mt-10">Loading...</div>;
 
   return (
-    <div className="container mx-auto p-4 flex flex-col md:flex-row gap-6">
-      <br></br>
+    <div className="container mx-auto p-6 flex flex-col md:flex-row gap-8">
       {/* รูปภาพสินค้า */}
       <div className="md:w-8/12 flex justify-center items-center relative">
         <div
@@ -77,29 +76,15 @@ const ProductDetail = () => {
         <div className="zoomed-image" id="zoomed-image" />
       </div>
 
-
-      
-
       {/* รายละเอียดสินค้า */}
-      <div className="md:w-6/12 space-y-6">
+      <div className="md:w-4/12 space-y-4">
         <h1 className="text-3xl font-bold">{product.name}</h1>
-        <p className="font-thin text-gray-600">{product.description}</p>
-        {/* <p className="text-2xl font-semibold text-primary">{`฿${product.price}`}</p> */}
-        {/* <p className="text-lg text-gray-600">{product.price}</p> */}
+        <p className="text-lg text-gray-600">{product.description}</p>
+        <p className="text-2xl font-semibold text-primary">{`฿${product.price}`}</p>
 
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>Installation Type:</strong> {product.installation_type || "N/A"}</li>
-          <li><strong>Screen Size:</strong> {product.screen_size || "N/A"}</li>
-          <li><strong>Resolution:</strong> {product.resolution || "N/A"}</li>
-          <li><strong>Brightness:</strong> {product.brightness || "N/A"}</li>
-          <li><strong>Connectivity:</strong> {product.connectivity || "N/A"}</li>
-          <li><strong>Operating System:</strong> {product.operating_system || "N/A"}</li>
-        </ul>
-
-
-        {/* <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary-dark transition">
+        <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary-dark transition">
           Add to Cart
-        </button> */}
+        </button>
       </div>
     </div>
   );
@@ -114,7 +99,7 @@ const handleZoom = (e) => {
 
   // คำนวณการซูม
   const x = (offsetX / width) * 100;
-  const y = (offsetY / height) * 300;
+  const y = (offsetY / height) * 100;
 
   zoomedImage.style.backgroundImage = `url(${image.src})`;
   zoomedImage.style.backgroundPosition = `${x}% ${y}%`;
@@ -133,8 +118,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-

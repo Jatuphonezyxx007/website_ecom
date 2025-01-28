@@ -465,35 +465,31 @@ app.get("/api/products/:id", (req, res) => {
 SELECT 
     p.id,
     p.name,
+    p.description,
     pd.installation_type,
     pd.screen_size,
     pd.resolution,
     pd.brightness,
-    p.price,
-    p.status,
-    p.category_id,
     pd.connectivity,
     pd.operating_system,
+    p.price,
+    p.status,
     c.name AS category_name,
-    (
-        SELECT pi.image_path 
-        FROM product_images pi 
-        WHERE pi.product_id = p.id AND pi.is_main = 1 LIMIT 1
-    ) AS image_path,
-    (
-        SELECT GROUP_CONCAT(pi.image_path)
-        FROM product_images pi
-        WHERE pi.product_id = p.id AND pi.is_main = 0
-    ) AS additional_images
+    pi.image_path,
+    pi.is_main
 FROM 
     products p
 INNER JOIN 
     product_details pd ON p.id = pd.product_id
-INNER JOIN 
+INNER JOIN
     categories c ON p.category_id = c.id
+LEFT JOIN 
+    product_images pi ON p.id = pi.product_id
 WHERE 
-    p.id = ?;
-
+    p.id = ?
+ORDER BY 
+    pi.is_main DESC,
+    pi.id ASC;
   `;
 
   db.query(sqlProductById, [productId], (err, results) => {

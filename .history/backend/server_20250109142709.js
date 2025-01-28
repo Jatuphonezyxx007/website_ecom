@@ -462,38 +462,29 @@ app.get("/api/products/:id", (req, res) => {
   const productId = req.params.id;
 
   const sqlProductById = `
-SELECT 
-    p.id,
-    p.name,
-    pd.installation_type,
-    pd.screen_size,
-    pd.resolution,
-    pd.brightness,
-    p.price,
-    p.status,
-    p.category_id,
-    pd.connectivity,
-    pd.operating_system,
-    c.name AS category_name,
-    (
-        SELECT pi.image_path 
-        FROM product_images pi 
-        WHERE pi.product_id = p.id AND pi.is_main = 1 LIMIT 1
-    ) AS image_path,
-    (
-        SELECT GROUP_CONCAT(pi.image_path)
-        FROM product_images pi
-        WHERE pi.product_id = p.id AND pi.is_main = 0
-    ) AS additional_images
-FROM 
-    products p
-INNER JOIN 
-    product_details pd ON p.id = pd.product_id
-INNER JOIN 
-    categories c ON p.category_id = c.id
-WHERE 
-    p.id = ?;
-
+    SELECT 
+        p.id,
+        p.name,
+        pd.installation_type,
+        pd.screen_size,
+        pd.resolution,
+        pd.brightness,
+        pd.connectivity,
+        pd.operating_system,
+        p.price,
+        p.status,
+        pi.image_path,
+        c.name AS category_name
+    FROM 
+        products p
+    INNER JOIN 
+        product_details pd ON p.id = pd.product_id
+    INNER JOIN
+        categories c ON p.category_id = c.id
+    LEFT JOIN 
+        product_images pi ON p.id = pi.product_id AND pi.is_main = 1
+    WHERE 
+        p.id = ?
   `;
 
   db.query(sqlProductById, [productId], (err, results) => {

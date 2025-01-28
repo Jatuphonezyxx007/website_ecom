@@ -77,14 +77,11 @@ const ProductDetail = () => {
         <div className="zoomed-image" id="zoomed-image" />
       </div>
 
-
-      
-
       {/* รายละเอียดสินค้า */}
       <div className="md:w-6/12 space-y-6">
         <h1 className="text-3xl font-bold">{product.name}</h1>
-        <p className="font-thin text-gray-600">{product.description}</p>
-        {/* <p className="text-2xl font-semibold text-primary">{`฿${product.price}`}</p> */}
+        <p className="text-lg text-gray-600">{product.description}</p>
+        <p className="text-2xl font-semibold text-primary">{`฿${product.price}`}</p>
         {/* <p className="text-lg text-gray-600">{product.price}</p> */}
 
         <ul className="list-disc ml-6 space-y-2">
@@ -133,8 +130,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-

@@ -472,8 +472,6 @@ SELECT
     p.price,
     p.status,
     p.category_id,
-    pd.connectivity,
-    pd.operating_system,
     c.name AS category_name,
     (
         SELECT pi.image_path 

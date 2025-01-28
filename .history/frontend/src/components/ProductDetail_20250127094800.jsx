@@ -78,7 +78,22 @@ const ProductDetail = () => {
       </div>
 
 
-      
+      <div className="md:w-8/12 flex justify-center items-center relative">
+        <div
+          className="image-container"
+          onMouseMove={(e) => handleZoom(e)} // เรียกฟังก์ชันเมื่อเมาส์เลื่อนไปบนภาพ
+          onMouseLeave={() => hideZoom()} // เรียกฟังก์ชันเมื่อเมาส์ออกจากภาพ
+        >
+          <img
+          src={`/products${product.image_path}`}
+          alt={product.name}
+          className="main-image rounded-lg shadow-lg object-contain w-full h-[60vh] max-w-full max-h-[70vh]"
+          />
+        </div>
+        {/* ภาพซูมข้างๆ เมาส์ */}
+        <div className="zoomed-image" id="zoomed-image" />
+      </div>
+
 
       {/* รายละเอียดสินค้า */}
       <div className="md:w-6/12 space-y-6">
@@ -133,8 +148,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-

@@ -77,9 +77,6 @@ const ProductDetail = () => {
         <div className="zoomed-image" id="zoomed-image" />
       </div>
 
-
-      
-
       {/* รายละเอียดสินค้า */}
       <div className="md:w-6/12 space-y-6">
         <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -133,8 +130,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-

@@ -61,6 +61,7 @@ const ProductDetail = () => {
     <div className="container mx-auto p-4 flex flex-col md:flex-row gap-6">
       <br></br>
       {/* รูปภาพสินค้า */}
+      <div className="row">
       <div className="md:w-8/12 flex justify-center items-center relative">
         <div
           className="image-container"
@@ -75,6 +76,7 @@ const ProductDetail = () => {
         </div>
         {/* ภาพซูมข้างๆ เมาส์ */}
         <div className="zoomed-image" id="zoomed-image" />
+      </div>
       </div>
 
 
@@ -133,8 +135,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-

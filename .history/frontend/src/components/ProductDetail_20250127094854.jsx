@@ -133,8 +133,3 @@ const hideZoom = () => {
 };
 
 export default ProductDetail;
-
-
-
-
-
